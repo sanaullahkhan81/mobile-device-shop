@@ -5357,12 +5357,12 @@ __webpack_require__.r(__webpack_exports__);
       modelRules: [function (v) {
         return !!v || 'Model is Required';
       }, function (v) {
-        return v && v.length >= 2 || 'Field must be greter than 5 characters';
+        return v && v.length >= 2 || 'Field must be greater than 5 characters';
       }],
       brandRules: [function (v) {
         return !!v || 'Brand is Required';
       }, function (v) {
-        return v && v.length >= 2 || 'Field must be greter than 5 characters';
+        return v && v.length >= 2 || 'Field must be greater than 5 characters';
       }],
       dateRules: [function (v) {
         return !!v || 'Date is required';
@@ -5422,7 +5422,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.devices.splice(this.editedIndex, 1);
       axios["delete"]('api/device/' + this.editedItem.id).then(function (response) {
-        if (response.data.status == 200) {
+        if (response.data.status === 200) {
           _this2.$toasted.success(response.data.message);
 
           _this2.close();
@@ -5464,7 +5464,7 @@ __webpack_require__.r(__webpack_exports__);
             os: this.editedItem.os,
             release_date: this.editedItem.release_date
           }).then(function (response) {
-            if (response.data.status == 200) {
+            if (response.data.status === 200) {
               Object.assign(_this5.devices[_this5.editedIndex], _this5.editedItem);
 
               _this5.$toasted.success(response.data.message);
@@ -5484,7 +5484,7 @@ __webpack_require__.r(__webpack_exports__);
             os: this.editedItem.os,
             release_date: this.editedItem.release_date
           }).then(function (response) {
-            if (response.data.status == 200) {
+            if (response.data.status === 200) {
               _this5.devices.push(_this5.editedItem);
 
               _this5.$toasted.success(response.data.message);

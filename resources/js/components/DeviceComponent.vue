@@ -213,11 +213,11 @@ export default {
         //Validations
         modelRules: [
             v => !!v || 'Model is Required',
-            v => (v && v.length >= 2) || 'Field must be greter than 5 characters',
+            v => (v && v.length >= 2) || 'Field must be greater than 5 characters',
         ],
         brandRules: [
             v => !!v || 'Brand is Required',
-            v => (v && v.length >= 2) || 'Field must be greter than 5 characters',
+            v => (v && v.length >= 2) || 'Field must be greater than 5 characters',
         ],
         dateRules: [
             v => !!v || 'Date is required',
@@ -284,7 +284,7 @@ export default {
             this.devices.splice(this.editedIndex, 1)
             axios.delete('api/device/' + this.editedItem.id)
                 .then((response) => {
-                    if (response.data.status == 200) {
+                    if (response.data.status === 200) {
                         this.$toasted.success(response.data.message)
                         this.close()
                     } else {
@@ -324,7 +324,7 @@ export default {
                             release_date: this.editedItem.release_date
                         })
                         .then((response) => {
-                            if (response.data.status == 200) {
+                            if (response.data.status === 200) {
                                 Object.assign(this.devices[this.editedIndex], this.editedItem)
                                 this.$toasted.success(response.data.message)
                                 this.close()
@@ -344,7 +344,7 @@ export default {
                             release_date: this.editedItem.release_date
                         })
                         .then((response) => {
-                            if (response.data.status == 200) {
+                            if (response.data.status === 200) {
                                 this.devices.push(this.editedItem);
                                 this.$toasted.success(response.data.message)
                                 this.close()

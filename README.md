@@ -18,9 +18,11 @@ Login to CLI of database - CLI `(>_)` can be access through Docker Dashboard und
 
 ## Create database
 `mysql -h localhost -u root -p -e "CREATE DATABASE devices";`
+#### password: `password` if prompted
 
 ### Grand previleges database
 `mysql -h localhost -u root -p -e "GRANT ALL PRIVILEGES ON devices.* TO 'user'@'%'";`
+#### password: `password` if prompted
 
 ## ENV setup
    `cp .env.example .env`
@@ -28,8 +30,13 @@ Login to CLI of database - CLI `(>_)` can be access through Docker Dashboard und
 ## Database and tables setup
 ### Run migration using below command
    `php artisan  migrate`
-## Optional, Import data using `devices.csv` file in root folder OR
-## Use `devices_2022_08_29.sql.gz sql` file in root folder
+
+### Use `devices_2022_08_29.sql.gz sql` file in root folder, to create and import database along with data
+### Or if database and table already setup, Import data using `devices.csv` file in root folder 
+
+### Run these command `composer install` and `npm install` or `yarn`
+
+### to start the server `php artisan optimize && php artisan serve --port=8000`
 
 ## PHPUnit test
 `php artisan test --filter DeviceTest`
@@ -38,4 +45,4 @@ Login to CLI of database - CLI `(>_)` can be access through Docker Dashboard und
 1. Add assertion for a required model and brand. Testing were model and brand has `null` value
 2. Add assertion for a valid release_date format (YYYY/MM), release_date is in `Y/d/m` format
 
-### The above 2 test will failed
+### The above 2 test will fail

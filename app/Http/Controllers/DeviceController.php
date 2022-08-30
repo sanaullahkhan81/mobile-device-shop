@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Device;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
@@ -11,9 +12,9 @@ class DeviceController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Device[]|Collection
      */
-    public function index()
+    public function index(): Collection
     {
         return Device::all();
     }
@@ -21,9 +22,9 @@ class DeviceController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function create()
+    public function create(): void
     {
         //
     }
@@ -31,12 +32,12 @@ class DeviceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request): JsonResponse
     {
-        $validated = $request->validate([
+         $request->validate([
             'model' => 'required',
             'brand' => 'required',
             'release_date' => 'required|date_format:Y/d'
@@ -46,16 +47,16 @@ class DeviceController extends Controller
 
         return response()->json([
             'status' => 200,
-            'message' => 'Record Added sucessfully']);
+            'message' => 'Record Added successfully']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param string $id
+     * @return void
      */
-    public function show($id)
+    public function show(string $id): void
     {
         //
     }
@@ -63,10 +64,10 @@ class DeviceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param string $id
+     * @return void
      */
-    public function edit($id)
+    public function edit(string $id): void
     {
         //
     }
@@ -74,31 +75,31 @@ class DeviceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param string $id
+     * @return JsonResponse
      */
-    public function update(Request $request, $id): JsonResponse
+    public function update(Request $request, string $id): JsonResponse
     {
         Device::whereId($id)->update($request->all());
 
         return response()->json([
             'status' => 200,
-            'message' => 'Record Updated sucessfully']);
+            'message' => 'Record Updated successfully']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param string $id
+     * @return JsonResponse
      */
-    public function destroy($id): JsonResponse
+    public function destroy(string $id): JsonResponse
     {
         Device::destroy($id);
 
         return response()->json([
             'status' => 200,
-            'message' => 'Record Deleted sucessfully']);
+            'message' => 'Record Deleted successfully']);
     }
 }
