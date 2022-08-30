@@ -5319,6 +5319,7 @@ __webpack_require__.r(__webpack_exports__);
       dialog: false,
       dialogDelete: false,
       search: '',
+      // Datatable headers
       headers: [{
         text: 'Model',
         align: 'start',
@@ -5352,7 +5353,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       valid: true,
       name: '',
-      //   Validations
+      //Validations
       modelRules: [function (v) {
         return !!v || 'Model is Required';
       }, function (v) {

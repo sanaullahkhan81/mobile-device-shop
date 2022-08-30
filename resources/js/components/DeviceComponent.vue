@@ -177,6 +177,8 @@ export default {
         dialog: false,
         dialogDelete: false,
         search: '',
+
+        // Datatable headers
         headers: [
             {
                 text: 'Model',
@@ -190,12 +192,14 @@ export default {
         ],
         devices: [],
         editedIndex: -1,
+
         editedItem: {
             model: '',
             brand: '',
             os: '',
             release_date: '',
         },
+
         defaultItem: {
             model: '',
             brand: '',
@@ -206,8 +210,7 @@ export default {
         valid: true,
         name: '',
 
-
-        //   Validations
+        //Validations
         modelRules: [
             v => !!v || 'Model is Required',
             v => (v && v.length >= 2) || 'Field must be greter than 5 characters',
@@ -253,9 +256,11 @@ export default {
         validate() {
             this.$refs.form.validate()
         },
+
         reset() {
             this.$refs.form.reset()
         },
+
         resetValidation() {
             this.$refs.form.resetValidation()
         },

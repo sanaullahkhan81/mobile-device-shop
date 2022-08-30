@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Assuming PHP alredy setup in your device.
+# Assuming PHP already setup in your device.
 Requirment: `^php 8.1`, `node ^16.12.2`
 
 ## Start Docker
@@ -35,5 +35,7 @@ Login to CLI of database - CLI `(>_)` can be access through Docker Dashboard und
 `php artisan test --filter DeviceTest`
 
 ###There are 2 test 
-1. Add assertion for a required model and brand
-2. Add assertion for a valid release_date format (YYYY/MM)
+1. Add assertion for a required model and brand. Testing were model and brand has `null` value
+2. Add assertion for a valid release_date format (YYYY/MM), release_date is in `Y/d/m` format
+
+### The above 2 test will failed
