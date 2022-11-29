@@ -60,7 +60,6 @@ class DeviceController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -71,7 +70,6 @@ class DeviceController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
